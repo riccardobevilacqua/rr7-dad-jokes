@@ -13,90 +13,10 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.5;
-}
-
-/* Layout containers */
-.page-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  gap: 4rem;
+  align-items: center;
   min-height: 100vh;
-  padding: 2rem;
-}
-
-/* Header styles */
-.page-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2.25rem;
-}
-
-.page-title {
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 1;
-}
-
-/* Logo visibility based on color scheme */
-.logo-light {
-  display: block;
-}
-
-.logo-dark {
-  display: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo-light {
-    display: none;
-  }
-  
-  .logo-dark {
-    display: block;
-  }
-}
-
-/* Navigation styles */
-.nav-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  padding: 1.5rem;
-  border: 1px solid;
-  border-radius: 1.5rem;
-}
-
-.nav-container ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.nav-text {
-  line-height: 1.5;
-}
-
-.nav-link {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem;
-  line-height: normal;
-  color: inherit;
-  text-decoration: none;
-}
-
-.nav-link:hover {
-  text-decoration: underline;
-}
-
-.nav-icon {
-  stroke: currentColor;
 }
 
 /* Light mode (default) */
@@ -105,6 +25,9 @@ body {
   --text-color: #111827;
   --nav-background: #ffffff;
   --nav-border-color: #e5e7eb;
+  --card-background-color: #f3f4f6;
+  --card-border-color: #d1d5db;
+  --card-shadow-color: rgba(0, 0, 0, 0.1);
 }
 
 /* Dark mode */
@@ -114,6 +37,9 @@ body {
     --text-color: #f9fafb;
     --nav-background: #1f2937;
     --nav-border-color: #374151;
+    --card-background-color: #1f2937;
+    --card-border-color: #374151;
+    --card-shadow-color: rgba(0, 0, 0, 0.5);
   }
 }
 
@@ -123,7 +49,27 @@ body {
   color: var(--text-color);
 }
 
-.nav-container {
-  background-color: var(--nav-background);
-  border-color: var(--nav-border-color);
+/* Container styles */
+.container {
+  max-width: 80ch;
+  width: 100%;
+  padding: 16px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* JokeList styles */
+.jokeList {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* Add a gap of 2rem between JokeCards */
+}
+
+/* JokeCard styles */
+.jokeCard {
+  padding: 16px;
+  background-color: var(--card-background-color);
+  border-radius: 8px;
+  border: 1px solid var(--card-border-color);
+  box-shadow: 0 2px 4px var(--card-shadow-color);
 }
