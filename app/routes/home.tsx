@@ -3,7 +3,7 @@
 // - Route.LoaderArgs - Arguments passed to the loader function
 // - Route.ComponentProps - Props passed to the Home component
 import type { Route } from "./+types/home";
-import JokeCard from "../components/JokeCard";
+import JokeCard from "~/components/JokeCard";
 
 interface Joke {
   id: string;
