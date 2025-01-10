@@ -1,9 +1,18 @@
 import type { Route } from "./+types/home";
 
-import { loader as getJokes } from "~/api/getJokes";
+import type { Joke } from "~/types";
 import JokesList from "~/components/JokesList";
 
-export const loader = getJokes;
+export async function loader(): Promise<Joke[]> {
+  const response = await fetch("https://icanhazdadjoke.com/search?limit=5", {
+    headers: {
+      Accept: "application/json",
+    },
+  });
+  const data = await response.json();
+
+  return data.results;
+}
 
 export default function Home({ loaderData }: Route.ComponentProps) {
   const jokes = loaderData;
